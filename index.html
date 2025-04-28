@@ -64,7 +64,7 @@
 								<div class="col-4 col-12-medium">
 									<header>
 										<h2>About Me</h2>
-										<p>I'm a Software Developer with experience building full-stack AI and data solutions<br>
+										<p>I'm a Software Developer with experience building full-stack AI and data solutions.<br>
 											<a href="misc/Resume.pdf" target="_blank" style="text-decoration: none;">Click here to view my resume</a></p>
 									</header>
 								</div>
@@ -107,7 +107,7 @@
 
 			<!-- Three -->
 				<section id="three" class="spotlight style2 right">
-					<span class="image fit main"><img src="images/ProjectsCollage.png" alt="" /></span>
+					<span class="image fit main"><img id="project-image" src="images/ProjectsCollage.png" alt="" /></span>
 					<div class="content">
 						<header>
 							<h2>Projects</h2>
@@ -164,6 +164,24 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				function updateProjectImage() {
+					const imgElement = document.getElementById('project-image');
+					if (imgElement) {
+						if (window.innerWidth < 768) { // Use 768px as a common mobile breakpoint
+							imgElement.src = 'images/ProjectsCollageMobile.png';
+						} else {
+							imgElement.src = 'images/ProjectsCollage.png';
+						}
+					}
+				}
+
+				// Run on initial load
+				window.addEventListener('DOMContentLoaded', updateProjectImage);
+				// Run on window resize
+				window.addEventListener('resize', updateProjectImage);
+			</script>
 
 	</body>
 </html>
